@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.child')
 
 @section('email-from')
 	{{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal')) }}

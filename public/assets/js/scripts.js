@@ -3,7 +3,7 @@
 		$googlemap_longitude	= 144.968900,
 		$googlemap_zoom			= 13;
 
-	var _enableAnimation		= true,							// enable|disable animation
+	var _enableAnimation		= false,							// enable|disable animation
 		_scrollSpeed			= 1500;
 
 
