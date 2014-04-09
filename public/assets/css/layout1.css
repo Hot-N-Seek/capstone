@@ -1,0 +1,108 @@
+/**  This will go on head**/
+<link href="assets/css/layout1.css" rel="stylesheet" type="text/css" />
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+
+/** This is just an example **/
+		<!-- QUOTE -->
+		<section class="quote color parallax" data-stellar-background-ratio="0.5" style="background-image:url(assets/images/preview/slider/parallax_bg.jpg)">
+
+			<div class="container">
+				<q>We can't solve problems by using the same kind of thinking we used when we created them.</q>
+				<cite>
+					<strong>Albert Einstein</strong>
+				</cite>
+			</div>
+
+		</section>
+		<!-- QUOTE -->
+
+/** what Parallax needs - css 
+ **************************************************************** **/
+	/* parallax */
+	html, body {
+	color: #333;
+	background:#f6f6f6;
+
+	font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+
+	padding: 0px !important;
+	margin: 0px !important;
+	border: 0px !important;
+
+	height: 100%;
+	line-height: 1.5;
+}
+	.parallax {
+		position:relative;
+		overflow:hidden;
+		color:#fff;
+		background:#313131;
+		background-position:left top;
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+		.parallax {
+		min-height:200px;
+		background-size: inherit;
+	}
+
+section.quote,
+section.quote q {
+	font-size:23px;
+}
+
+section.quote {
+	padding:80px 0;
+}
+
+section {
+	background:#fff;
+	border-top: #ddd 1px solid;
+	border-bottom: #ddd 1px solid;
+	padding:0;
+	display:block;
+	text-align:center;
+	-webkit-font-smoothing: antialiased;
+	overflow:hidden !important;
+	padding-top:60px;
+}
+
+/** This goes in your php or html scripts, some are not requiered other do for parallex to work**/
+		<!-- CORE JS FRAMEWORK--> 
+		<script type="text/javascript" src="assets/plugins/pace/pace.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-easing/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/isotope/jquery.isotope.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/masonry.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/smoothscroll.js"></script>
+		<script async type="text/javascript" src="assets/plugins/modernizr.min.js"></script>
+		<!-- /CORE JS FRAMEWORK--> 
+
+		<!-- PLUGINS -->
+		<script type="text/javascript" src="assets/plugins/jquery-fitvids/jquery.fitvids.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-appear/jquery.appear.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-countTo/jquery.countTo.js"></script>
+		<script type="text/javascript" src="assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-scrollto/jquery.scrollTo.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-onepage-nav/jquery.nav.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-owl-carousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-easy-pie-chart/jquery.easypiechart.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/prettyPhoto/js/jquery.prettyPhoto.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-stellar/jquery.stellar.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-bxslider/jquery.bxslider.pack.js"></script>
+		<script type="text/javascript" src="assets/plugins/iscroll/iscroll.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
+		<!-- /PLUGINS -->
+
+		<script type="text/javascript" src="assets/js/demo.js"></script>
+		<script type="text/javascript" src="assets/js/scripts.js"></script>
+		<script async type="text/javascript" src="assets/js/shop.js"></script>
+		<script async type="text/javascript" src="assets/js/contact.js"></script>
+		<script async type="text/javascript" src="assets/plugins/styleswitcher/styleswitcher.js"></script>		
