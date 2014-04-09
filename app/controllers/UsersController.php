@@ -21,6 +21,11 @@ class UsersController extends \BaseController {
 		return View::make('login');
 	}
 
+	public function resetPassword() 
+	{
+		echo "feature coming soon";
+	}
+
 	/**
 	 * Handles User login
 	 */

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemsTable extends Migration {
+class CreateContactUsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,12 @@ class CreateItemsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('items', function($table)
+		Schema::create('contact_us', function($table)
         {
             $table->increments('id');
-            $table->string('name', 100);
-            $table->double('latitude', 15, 8);
-            $table->double('longitude', 15, 8);
-            $table->integer('user_id')->unsigned();
-		    $table->foreign('user_id')->references('id')->on('users');
+            $table->string('from', 100);
+            $table->string('subject', 100);
+            $table->string('message', 1000);
             $table->timestamps();
         });
 	}
@@ -31,7 +29,7 @@ class CreateItemsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('items');
+		Schema::drop('contact_us');
 	}
 
 }
