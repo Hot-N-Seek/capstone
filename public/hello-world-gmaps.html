@@ -32,8 +32,6 @@
 	var geocoder;
 	var bounds = new google.maps.LatLngBounds();
 	var markersArray = [];
-
-	var origin1 = new google.maps.LatLng(29.4167, -98.5000);
 	
 
 	var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
@@ -53,7 +51,7 @@
 		var destinationB = new google.maps.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
 		// console.log(latitude);
 		// console.log(longitude);
-		console.log(google.maps.geometry.spherical.computeDistanceBetween(origin1, destinationB));
+		console.log(google.maps.geometry.spherical.computeDistanceBetween(itemLocation, destinationB));
 	}
 
     function calcCurrentDistance() {   
