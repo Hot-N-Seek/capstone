@@ -153,7 +153,39 @@
 						<li><a href="#team">ABOUT US</a></li>
 						<li><a href="#contact">CONTACT</a></li>
 						<li><a href="#pricing">SING UP</a></li>
-						<li><a href="#login">LOGIN</a></li>
+
+						<li class="dropdown">
+							<a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
+							<ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+								<li>
+									<div class="row">
+										<div class="col-md-12">
+											@if (Session::has('errorMessage'))
+										    <div class="alert alert-danger dif-col">{{{ Session::get('errorMessage') }}}</div>
+											@endif
+											{{ Form::open(array('action' => 'UsersController@doLogin', 'class' => 'form', 'id' => 'login-nav', 'accept-charset' => 'UTF-8')) }}
+												<div class="form-group">
+												{{ $errors->has('email') ? $errors->first('email', '<p><span class="help-block">:message</span></p>') : '' }}
+												{{ Form::label('email', 'Email address', array('class' => 'sr-only')) }}
+												{{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Email or Username')) }}
+												</div>
+													<div class="form-group">
+													{{ $errors->has('password') ? $errors->first('password', '<p><span class="help-block">:message</span></p>') : '' }}
+													{{ Form::label('password', 'Password', array('class' => 'sr-only')) }}
+													{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
+												</div>
+													<hr>
+												<div class="form-group">
+												{{ Form::submit('Sign in', array('class' => 'btn btn-success btn-block')); }}
+												</div>
+												{{ Form::close() }}
+												<hr>
+											<a href="{{{ action('UsersController@create') }}}" class='btn btn-success col-md-12'>Sign Up</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
 						<li><a href="#profile">PROFILE</a></li>
 					</ul>
 				</nav>
