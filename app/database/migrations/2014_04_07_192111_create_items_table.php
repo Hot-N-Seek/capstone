@@ -16,8 +16,8 @@ class CreateItemsTable extends Migration {
         {
             $table->increments('id');
             $table->string('name', 100);
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->double('latitude', 15, 8);
+            $table->double('longitude', 15, 8);
             $table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
