@@ -1974,3 +1974,8 @@ section.quote q {
 		font-size:30px;
 	}
 }
+
+#map-canvas {
+	height: 500px;
+	width: 100%;
+}

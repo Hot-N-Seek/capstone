@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.child')
 
 @section('tab-title')
 	<title>User List</title>

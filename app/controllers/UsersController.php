@@ -41,7 +41,7 @@ class UsersController extends \BaseController {
 
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))) || Auth::attempt(array('username' => Input::get('email'), 'password' => Input::get('password'))))
 		{
-		    return Redirect::intended('/posts');
+		    return Redirect::intended('/');
 		}
 		else
 		{
@@ -140,7 +140,7 @@ class UsersController extends \BaseController {
 	public function logout()
 	{
 		Auth::logout();
-		return Redirect::action('PostsController@index');
+		return Redirect::to('/');
 	}
 
 	/**
