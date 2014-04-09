@@ -16,6 +16,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::get('/', 'HomeController@Home');
+
 Route::resource('users', 'UsersController');
 
 Route::resource('items', 'ItemsController');
+
