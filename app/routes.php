@@ -17,3 +17,8 @@ Route::get('/', function()
 });
 
 Route::get('/', 'HomeController@Home');
+
+Route::resource('users', 'UsersController');
+
+Route::resource('items', 'ItemsController');
+
