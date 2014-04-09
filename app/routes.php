@@ -16,9 +16,13 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+
+
 Route::get('/', 'HomeController@Home');
 
 Route::resource('users', 'UsersController');
+
+Route::post('/login', 'UsersController@doLogin');
 
 Route::resource('items', 'ItemsController');
 
