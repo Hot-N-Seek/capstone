@@ -1975,7 +1975,30 @@ section.quote q {
 	}
 }
 
+
+/*added by us*/
 #map-canvas {
 	height: 500px;
-	width: 100%;
+	width: 60%;
+	margin-left: 20%;
+}
+
+.main-container {
+	background-color: #F00;
+}
+
+#missing-div {
+	height: 100%; 
+	text-align: center;
+}
+
+#missing-image {
+	max-height: 500px; 
+	max-width: 500px; 
+	margin-top: 30px;
+}
+
+#large-logo {
+	max-height: 100%; 
+	max-width: 100%;
 }
