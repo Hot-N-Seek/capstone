@@ -9,7 +9,7 @@
     <!-- HOME -->
     <section id="home" class="homeTop nofull imageOnly color">
         
-        <img src="assets/images/preview/slider/MapGeoLocator.jpg" alt="Large Logo Image" id='large-logo'/>
+        <img src="assets/images/preview/slider/MapGeoLocator2.jpg" alt="Large Logo Image" id='large-logo'/>
 
     </section>
     <!-- /HOME -->
@@ -19,7 +19,7 @@
         <div class="container">
 
             <!-- LOGO -->
-            <a href="#home" class="pull-left scrollTo"><img src="assets/images/HotnColdLogo.png" height="60" alt="welcome" /></a>
+            <a href="#home" class="pull-left scrollTo"><img src="assets/images/logo.png" height="60" alt="welcome" /></a>
 
             <!-- MOBILE MENU -->
             <button id="mobileMenu" class="fa fa-bars" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"></button>
