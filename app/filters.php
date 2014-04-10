@@ -44,7 +44,7 @@ Route::filter('edit_user', function()
 		$user = Request::segment(2);
 		if (Auth::user()->id != $user) {
 			Session::flash('errorMessage', 'You do not have permission to do that jerk');
-			return Redirect::action('PostsController@index');
+			return Redirect::to('/');
 		}
 	} 
 });
@@ -53,7 +53,7 @@ Route::filter('admin', function()
 {
 	if (Auth::check() && Auth::user()->role != 'Admin') {
 		Session::flash('errorMessage', 'You do not have permission to do that');
-		return Redirect::action('PostsController@index');
+		return Redirect::to('/');
 	}
 });
 
@@ -64,7 +64,7 @@ Route::filter('role_type', function()
 		$userId = $post->user_id;
 		if (Auth::user()->id != $userId) {
 			Session::flash('errorMessage', 'You do not have permission to do that');
-			return Redirect::action('PostsController@index');
+			return Redirect::to('/');
 		}
 	} 
 });
