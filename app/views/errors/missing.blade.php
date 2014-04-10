@@ -31,7 +31,7 @@
 	</header>
 	<!-- /HEADER -->
 
-	<div class='main-container' id='missing-div'>
+	<div class='container' id='missing-div'>
     	<img src="assets/images/magicwords.gif" id='missing-image'/>
 	</div>
   

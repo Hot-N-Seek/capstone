@@ -16,7 +16,7 @@
 
     <!-- HEADER -->
     <header id="header">
-        <div class="container main-container">
+        <div class="container">
 
             <!-- LOGO -->
             <a href="#home" class="pull-left scrollTo"><img src="/assets/images/HotnColdLogo.png" height="60" alt="welcome" /></a>
@@ -35,6 +35,7 @@
         </div>
     </header>
     <!-- /HEADER -->
+    <div class='container'>
 		@if ($edit)
 			<h1>Update User Info</h1>
     		{{ Form::open(array('action' => array('UsersController@update', $user->id), 'class' => 'form-horizontal', 'method' => 'put', 'files' => true)) }}
@@ -134,6 +135,6 @@
 			{{ Form::submit('Save User Info', array('class' => 'btn btn-default')); }}
 		</div>
 		{{ Form::close() }}
-    
+    </div>
 
 @stop

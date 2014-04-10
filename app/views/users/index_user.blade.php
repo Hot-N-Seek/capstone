@@ -16,7 +16,7 @@
 
     <!-- HEADER -->
     <header id="header">
-        <div class="container main-container">
+        <div class="container">
 
             <!-- LOGO -->
             <a href="#home" class="pull-left scrollTo"><img src="assets/images/HotnColdLogo.png" height="60" alt="welcome" /></a>
@@ -35,6 +35,7 @@
         </div>
     </header>
     <!-- /HEADER -->
+    <div class='container'>
     	<h1>User list</h1>
         <div class="col-sm-3 col-md-3">
             <form class="navbar-form" method="GET" action="{{{ action('UsersController@index') }}}">
@@ -73,7 +74,7 @@
 
         {{ Form::open(array('action' => array('UsersController@destroy'), 'method' => 'delete', 'id' => 'formDeletePost')) }}
         {{ Form::close() }}
-
+    </div>
 @stop
 
 @section('bottom-script')
