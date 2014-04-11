@@ -1,13 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-	<!-- HOME -->
-	<section id="home" class="homeTop nofull imageOnly color">
-		
-		<img src="assets/images/preview/slider/MapGeoLocator2.jpg" alt="Large Logo Image" id='large-logo'/>
-
-	</section>
-	<!-- /HOME -->
 
 	<!-- HEADER -->
 	<header id="header">
