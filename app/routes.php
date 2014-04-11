@@ -46,14 +46,6 @@ Route::post('/ajax/post', function()
 		Log::info("Received post.");
 		Log::info(Input::all());
 
-		$validator = Validator::make(Input::all(), User::$rules);
-
-		if ($validator->fails())
-	    {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
-	        $reply = array('isAuthorized' => false, 'error' => true);
-	    }
-
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))) || Auth::attempt(array('username' => Input::get('email'), 'password' => Input::get('password'))))
 		{
 		    $reply = array('isAuthorized' => true, 'error' => false);
@@ -61,8 +53,7 @@ Route::post('/ajax/post', function()
 		else
 		{
 			$reply = array('isAuthorized' => false, 'error' => false);
-		}
+	    }
 
-		$reply = array('error' => false, 'message' => 'Processed post');
 		return Response::json($reply);
 	});
