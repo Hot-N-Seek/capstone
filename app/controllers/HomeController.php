@@ -22,6 +22,7 @@ class HomeController extends BaseController {
 
 	public function Home()
 	{
-		return View::make('home');
+		$data = Item::all();
+		return View::make('home')->with('items', $data);
 	}
 }

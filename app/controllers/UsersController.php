@@ -88,7 +88,7 @@ class UsersController extends \BaseController {
 		$user->last_name = Input::get('last_name');
 		$user->role = 'Author';
 		$user->save();
-		return Redirect::action('UsersController@doLogin')->withInput();
+		return Redirect::to('/');
 	}
 
 	/**
@@ -109,7 +109,10 @@ class UsersController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		$validator = Validator::make(Input::all(), User::$createRules);
+		$tempRules = User::$createRules;
+		$tempRules['email'] = $tempRules['email'] . ", $id";
+		$tempRules['username'] = $tempRules['username'] . ", $id";
+		$validator = Validator::make(Input::all(), $tempRules);
 
 		if ($validator->fails())
 	    {

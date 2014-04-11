@@ -10,15 +10,36 @@
 		var geocoder;
 
 	    function initialize() {
-		  var opts = {
-		    center: new google.maps.LatLng(29.4167, -98.5000),
-		    zoom: 10
-		  };
-		  map = new google.maps.Map(document.getElementById('map-canvas'), opts);
-		  geocoder = new google.maps.Geocoder();
+		  	var opts = {
+		  		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		    	center: new google.maps.LatLng(29.4167, -98.5000),
+		    	zoom: 9
+		  	};
+		  	map = new google.maps.Map(document.getElementById('map-canvas'), opts);
+		  	geocoder = new google.maps.Geocoder();
+		  	<? foreach ($items as $item) { ?>
+				setmarker( <?= "{$item->latitude}, {$item->longitude}" ?> );
+			<? } ?>
+		}
+
+		function setmarker(lat,lon)
+		{
+
+		var latlongMarker = new google.maps.LatLng(lat,lon);
+
+		var marker = new google.maps.Marker
+		    (
+		        {
+		            position: latlongMarker, 
+		            map: map,
+		            title:"Hello World!"
+		        }
+		    ); 
+
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
+		
 	</script>
 
 @stop
@@ -52,12 +73,13 @@
 					<li><a href="#contact">CONTACT</a></li>
 					@if (Auth::check() && Auth::user()->role == 'Admin')
 						<li><a href="{{{ action('UsersController@index') }}}" class='external'>USERS</a></li>
+						<li><a href="{{{ action('ContactsController@index') }}}" class='external'>MESSAGES</a></li>
 					@endif
 					@if (Auth::check())
 						<li><a href="{{{ action('UsersController@logout') }}}" class="external">LOGOUT</a></li>
 						<li><a href="{{{ action('UsersController@edit', Auth::user()->id) }}}" class='external'>{{{ Auth::user()->username }}}</a></li>
 					@else
-						<li><a href="#pricing">SIGN UP</a></li>
+						<li><a href="{{{ action('UsersController@create') }}}" class='external'>SIGN UP</a></li>
 						<li class="dropdown">
 							<a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">LOGIN<b class="caret"></b></a>
 							<ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
@@ -83,8 +105,6 @@
 												{{ Form::submit('Sign in', array('class' => 'btn btn-success btn-block')); }}
 												</div>
 												{{ Form::close() }}
-												<hr>
-											<a href="{{{ action('UsersController@create') }}}" class='btn btn-success col-md-12 external'>Sign Up</a>
 										</div>
 									</div>
 								</li>
@@ -334,58 +354,45 @@
 
 		<article class="container">
 
-			<!-- MESSAGE SENT -->
-			<div id="alertOk" class="alert alert-success fade in">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<span id="alertOkResponse"><strong>Thank You!</strong> Message sent!.</span>
-			</div>
-			<!-- /MESSAGE SENT -->
-
-			<!-- MESSAGE NOT SENT -->
-			<div id="alertErr" class="alert alert-danger fade in">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<span id="alertErrResponse"><!-- php output --><strong>Not Sent!</strong> Please complete all fields.</span>
-			</div>
-			<!-- MESSAGE NOT SENT -->
-
 			<div class="row text-left">
 				<div class="col-md-6">
 
 					<!-- EMAIL FORM -->
-					<form id="emailForm" class="form-horizontal" method="post" action="php/contact.php">
-						<input type="hidden" name="action" value="email_send" />
-
-						<!-- name -->
+					{{ Form::open(array('action' => 'ContactsController@store', 'class' => 'form-horizontal', 'id' => 'emailForm')) }}
+						<!-- from -->
 						<div class="form-group">
-							<label for="name" class="col-sm-2 control-label">Name</label>
+							{{ $errors->has('from') ? $errors->first('from', '<p><span class="help-block">:message</span></p>') : '' }}
+							{{ Form::label('from', 'From', array('class' => 'col-sm-2 control-label')) }}
 							<div class="col-sm-10">
-								<input required class="form-control" type="text" id="name" name="name" placeholder='Name' />
+								{{ Form::text('from', null, array('class' => 'form-control', 'placeholder' => 'From')) }}
 							</div>
 						</div>
 
-						<!-- email -->
+						<!-- subject -->
 						<div class="form-group">
-							<label for="subject" class="col-sm-2 control-label">Subject</label>
+							{{ $errors->has('subject') ? $errors->first('subject', '<p><span class="help-block">:message</span></p>') : '' }}
+							{{ Form::label('subject', 'Subject', array('class' => 'col-sm-2 control-label')) }}
 							<div class="col-sm-10">
-								<input required class="form-control" type="text" id="subject" name="subject" placeholder='Subject' />
+								{{ Form::text('subject', null, array('class' => 'form-control', 'placeholder' => 'Subject')) }}
 							</div>
 						</div>
 
 						<!-- message -->
 						<div class="form-group">
-							<label for="message" class="col-sm-2 control-label" placeholder=''>Message</label>
+							{{ $errors->has('message') ? $errors->first('message', '<p><span class="help-block">:message</span></p>') : '' }}
+							{{ Form::label('message', 'Message', array('class' => 'col-sm-2 control-label')) }}
 							<div class="col-sm-10">
-								<textarea required class="form-control" id="message" name="message" rows="5" placeholder='Message'></textarea>
+								{{ Form::textarea('message', null, array('class' => 'form-control', 'placeholder' => 'Message')) }}
 							</div>
 						</div>
 
 						<!-- send button -->
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-custom">SEND MESSAGE</button>
+								{{ Form::submit('Save Post', array('class' => 'btn btn-custom')); }}
 							</div>
 						</div>
-					</form>
+					{{ Form::close() }}
 					<!-- EMAIL FORM -->
 
 				</div>

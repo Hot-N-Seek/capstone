@@ -22,6 +22,8 @@ Route::get('/', 'HomeController@Home');
 
 Route::resource('users', 'UsersController');
 
+Route::resource('contact-us', 'ContactsController');
+
 Route::post('/login', 'UsersController@doLogin');
 
 Route::get('/logout', 'UsersController@logout');
