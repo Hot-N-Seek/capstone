@@ -2002,3 +2002,18 @@ section.quote q {
 	max-height: 150%; 
 	max-width: 100%;
 }
+
+/* Users */
+#UserBg {
+    background-color: #3a3a3a;
+    padding-bottom: 15px;
+    padding-top: 15px; 
+}
+
+.titleColor {
+	color: #f1ce2d;
+}
+
+table {
+	background-color: #f1f1f1;
+}
