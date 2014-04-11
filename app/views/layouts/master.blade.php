@@ -4,6 +4,9 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<title>HOT-N-COLD - Capstone Project</title>
+
+		<!-- ADDED LINKS FOR SIGNUP FORM -->
+		<link rel="stylesheet" href="css/typica-login.css">
 		
 
 		<!-- GOOGLE MAPS -->
@@ -40,9 +43,11 @@
 
 	</head>
 	<body>
-		
+
 
 		@yield('content')
+
+		@yield('bottom-script')
 
 	</body>
 </html>

@@ -6,14 +6,6 @@
 @stop
 
 @section('content')
-    <!-- HOME -->
-    <section id="home" class="homeTop nofull imageOnly color">
-        
-        <img src="assets/images/preview/slider/MapGeoLocator2.jpg" alt="Large Logo Image" id='large-logo'/>
-
-    </section>
-    <!-- /HOME -->
-
     <!-- HEADER -->
     <header id="header">
         <div class="container">
@@ -56,7 +48,7 @@
             <div class="alert alert-danger dif-col">{{{ Session::get('errorMessage') }}}</div>
         @endif
         <div>
-        <table class='table table-hover table-bordered'>
+        <table class='table table-hover table-bordered inner-container'>
         @foreach ($users as $user)
             <tr>
                 <td>{{{ $user->first_name }}}</td>

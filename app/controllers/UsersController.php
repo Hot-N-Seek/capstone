@@ -200,12 +200,6 @@ class UsersController extends \BaseController {
 			return Redirect::action('UsersController@index');
 		}
 		$user = User::find($id);
-		$posts = Post::where('user_id', '=', $id);
-		if (!empty($posts)) {
-			foreach ($posts as $post) {
-				$post->delete();
-			}
-		}
 		$user->delete();
 		Session::flash('successMessage', 'User was deleted');
 		return Redirect::action('UsersController@index');
