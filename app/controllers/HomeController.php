@@ -20,4 +20,9 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function Home()
+	{
+		$data = Item::all();
+		return View::make('home')->with('items', $data);
+	}
 }
