@@ -383,6 +383,9 @@
 							{{ Form::label('message', 'Message', array('class' => 'col-sm-2 control-label')) }}
 							<div class="col-sm-10">
 								{{ Form::textarea('message', null, array('class' => 'form-control', 'placeholder' => 'Message')) }}
+								@if (Auth::check())
+									{{ Form::hidden('username', Auth::user()->id) }}
+								@endif
 							</div>
 						</div>
 

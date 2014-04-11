@@ -2008,12 +2008,30 @@ section.quote q {
     background-color: #3a3a3a;
     padding-bottom: 15px;
     padding-top: 15px; 
+    height: 100%
 }
 
 .titleColor {
 	color: #f1ce2d;
 }
 
-table {
+.inner-container {
 	background-color: #f1f1f1;
+}
+
+.login-container {
+	border: 1px solid #000;
+	margin-top: 25px;
+	border-radius: 25px;
+	box-shadow: 2px 2px 4px #000;
+	padding: 20px;
+	max-width: 40%;
+}
+
+.contact-container {
+	border: 1px solid #000;
+	margin-top: 25px;
+	border-radius: 25px;
+	box-shadow: 2px 2px 4px #000;
+	padding: 20px;
 }
