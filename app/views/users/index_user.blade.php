@@ -35,8 +35,10 @@
         </div>
     </header>
     <!-- /HEADER -->
-    <div class='container'>
-    	<h1>User list</h1>
+
+<div id ="UserBg">
+    <div class="container">
+        <h1 class="titleColor">User list</h1>
         <div class="col-sm-3 col-md-3">
             <form class="navbar-form" method="GET" action="{{{ action('UsersController@index') }}}">
                 <div class="input-group">
@@ -47,15 +49,16 @@
                 </div>
             </form>
         </div>
-    	@if (Session::has('successMessage'))
-		    <div class="alert alert-success dif-col">{{{ Session::get('successMessage') }}}</div>
-		@endif
-		@if (Session::has('errorMessage'))
-		    <div class="alert alert-danger dif-col">{{{ Session::get('errorMessage') }}}</div>
-		@endif
+        @if (Session::has('successMessage'))
+            <div class="alert alert-success dif-col">{{{ Session::get('successMessage') }}}</div>
+        @endif
+        @if (Session::has('errorMessage'))
+            <div class="alert alert-danger dif-col">{{{ Session::get('errorMessage') }}}</div>
+        @endif
+        <div>
         <table class='table table-hover table-bordered'>
-    	@foreach ($users as $user)
-    		<tr>
+        @foreach ($users as $user)
+            <tr>
                 <td>{{{ $user->first_name }}}</td>
                 <td>{{{ $user->last_name }}}</td>
                 <td>{{{ $user->username }}}</td>
@@ -65,16 +68,18 @@
                     <a href="#" class='btnDeletePost btn btn-danger' data-userid="{{{$user->id}}}">Delete</a>
                 </td>
             </tr>
-    	@endforeach
+        @endforeach
         </table>
         {{ $users->appends(array('user_search' => Input::get('user_search')))->links() }} <br>
         @if (Auth::check())
-    	   <a href="{{{ action('UsersController@create') }}}" class='btn btn-success'>Create New User</a>
+           <a href="{{{ action('UsersController@create') }}}" class='btn btn-success'>Create New User</a>
         @endif
 
         {{ Form::open(array('action' => array('UsersController@destroy'), 'method' => 'delete', 'id' => 'formDeletePost')) }}
         {{ Form::close() }}
+        </div>
     </div>
+</div>
 @stop
 
 @section('bottom-script')
