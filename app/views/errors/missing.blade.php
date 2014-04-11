@@ -32,7 +32,7 @@
 	<!-- /HEADER -->
 
 	<div class='container' id='missing-div'>
-    	<img src="assets/images/magicwords.gif" id='missing-image'/>
+    	<img src="assets/images/404page.jpg" id='missing-image'/>
 	</div>
   
 @stop
