@@ -38,10 +38,10 @@
     <div class='container'>
 		@if ($edit)
 			<h1>Update User Info</h1>
-    		{{ Form::open(array('action' => array('UsersController@update', $user->id), 'class' => 'form-horizontal', 'method' => 'put', 'files' => true)) }}
+    		{{ Form::open(array('action' => array('UsersController@update', $user->id), 'class' => 'form-horizontal', 'method' => 'put')) }}
     	@else
     		<h1>Sign Up User</h1>
-    		{{ Form::open(array('action' => 'UsersController@store', 'class' => 'form-horizontal', 'files' => true)) }}
+    		{{ Form::open(array('action' => 'UsersController@store', 'class' => 'form-horizontal')) }}
     	@endif
 
 
