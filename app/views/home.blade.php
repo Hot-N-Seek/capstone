@@ -254,7 +254,7 @@
 					<!-- carousel item -->
 					<div class="item dragCursor" data-animation="fadeInUp">
 						<!-- top image -->
-						<span class="top-image"><img src="assets/images/preview/content/team/Nathaniel.jpg" alt="..." height="200"></span>
+						<span class="top-image"><img src="assets/images/preview/content/team/Nathan.png" alt="..." height="200"></span>
 						<!-- member name / occupation -->
 						<h4>
 							<strong>Nathaniel Medrano</strong> 
