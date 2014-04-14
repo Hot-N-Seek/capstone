@@ -1993,9 +1993,18 @@ section.quote q {
 }
 
 #missing-image {
-	max-height: 500px; 
-	max-width: 500px; 
+	max-height: 100%; 
+	max-width: 100%; 
 	margin-top: 30px;
+	z-index: 0px;
+}
+
+#paper-bg {
+	position: absolute;
+	max-width: 150%;
+	height: 600px;
+	left: -30px;
+	z-index: -2px;
 }
 
 #large-logo {
@@ -2008,8 +2017,10 @@ section.quote q {
     background-color: #3a3a3a;
     padding-bottom: 15px;
     padding-top: 15px; 
-    height: 100%
+    height: 100%;
+    
 }
+
 
 .titleColor {
 	color: #f1ce2d;
@@ -2034,4 +2045,13 @@ section.quote q {
 	border-radius: 25px;
 	box-shadow: 2px 2px 4px #000;
 	padding: 20px;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* for older versions of IE */
+	height: 100%;
+	margin-bottom: -347px; /* showing the footer */
+	padding-top: 50px;
+	padding-bottom: 347px; /* avoiding content go behind the footer */
 }
