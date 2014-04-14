@@ -448,6 +448,7 @@
 	<script type="text/javascript" src="/assets/plugins/jquery-bxslider/jquery.bxslider.pack.js"></script>
 	<script type="text/javascript" src="assets/plugins/iscroll/iscroll.js"></script>
 	<script type="text/javascript" src="assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
+	<script src="js/custom.js"></script>
 	<!-- /PLUGINS -->
 
 	<script type="text/javascript" src="/assets/js/demo.js"></script>
