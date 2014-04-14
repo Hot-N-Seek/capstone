@@ -221,11 +221,53 @@ class ItemTableSeeder extends Seeder {
 	{
 		DB::table('items')->delete();
 
+        $item = new Item();
+        $item->name = 'test';
+        $item->latitude = 29.4167;
+        $item->longitude = -98.5000;
+        $item->create_id = 1;
+        $item->save();
+        
+        $item = new Item();
+        $item->name = 'test2';
+        $item->latitude = 29.7944;
+        $item->longitude = -98.7315;
+        $item->create_id = 21;
+        $item->save();
+
 		$item = new Item();
-		$item->name = 'test';
-		$item->latitude = 29.4167;
-		$item->longitude = -98.5000;
-		$item->user_id = 1;
+		$item->name = 'test3';
+		$item->latitude = 29.5653;
+		$item->longitude = -98.6892;
+		$item->create_id = 1;
 		$item->save();
+
+        $item = new Item();
+        $item->name = 'test4';
+        $item->latitude = 29.6437381;
+        $item->longitude = -98.4952228;
+        $item->create_id = 21;
+        $item->save();
+
+        $item = new Item();
+        $item->name = 'test5';
+        $item->latitude = 29.7486;
+        $item->longitude = -98.4133;
+        $item->create_id = 1;
+        $item->save();
+
+        $item = new Item();
+        $item->name = 'test6';
+        $item->latitude = 29.5621191;
+        $item->longitude = -98.4581396;
+        $item->create_id = 21;
+        $item->save();
+
+        $item = new Item();
+        $item->name = 'test7';
+        $item->latitude = 29.56211910;
+        $item->longitude = -98.4731;
+        $item->create_id = 1;
+        $item->save();
 	}
 }
