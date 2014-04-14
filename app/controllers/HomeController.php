@@ -22,7 +22,13 @@ class HomeController extends BaseController {
 
 	public function Home()
 	{
+		// $data = Item::whereNull('found_id');
 		$data = Item::all();
+		foreach ($data as $key => $item) {
+			if (is_numeric($item->found_id)) {
+				unset($data[$key]);
+			}
+		}
 		return View::make('home')->with('items', $data);
 	}
 }

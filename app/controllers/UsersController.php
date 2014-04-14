@@ -9,7 +9,7 @@ class UsersController extends \BaseController {
 
 	    // run auth filter before all methods on this controller except index and show
 	    $this->beforeFilter('auth', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store')));
-	    $this->beforeFilter('admin', array('except' => array('doLogin', 'showLogin', 'edit', 'logout', 'create', 'store', 'update')));
+	    $this->beforeFilter('admin', array('except' => array('doLogin', 'showLogin', 'edit', 'logout', 'create', 'store', 'update', 'show')));
 	    $this->beforeFilter('edit_user', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store', 'update')));
 	}
 
@@ -184,7 +184,12 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = User::find($id);
+		$found_items = Item::where('found_id', '=', $id)->get();
+		$found_count = count($found_items);
+		$hidden_items = Item::where('create_id', '=', $id)->get();
+		$hidden_count = count($hidden_items);
+		return View::make('users.profile')->with(array('user' => $user, 'found_count' => $found_count, 'hidden_count' => $hidden_count));
 	}
 
 	/**

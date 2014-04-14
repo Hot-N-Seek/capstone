@@ -17,12 +17,12 @@
 		  	};
 		  	map = new google.maps.Map(document.getElementById('map-canvas'), opts);
 		  	geocoder = new google.maps.Geocoder();
-		  	<? foreach ($items as $item) { ?>
-				setmarker( <?= "{$item->latitude}, {$item->longitude}" ?> );
-			<? } ?>
+		  	@foreach ($items as $item)
+				setmarker( <?= "{$item->latitude}, {$item->longitude}, \"{$item->name}\"" ?> );
+			@endforeach
 		}
 
-		function setmarker(lat,lon)
+		function setmarker(lat, lon, name)
 		{
 
 		var latlongMarker = new google.maps.LatLng(lat,lon);
@@ -32,7 +32,7 @@
 		        {
 		            position: latlongMarker, 
 		            map: map,
-		            title:"Hello World!"
+		            title: name
 		        }
 		    ); 
 
@@ -45,6 +45,7 @@
 @stop
 
 @section('content')
+
 	<!-- HOME -->
 	<section id="home" class="homeTop nofull imageOnly color">
 		
@@ -68,7 +69,7 @@
 				<ul id="onepageNav" class="nav navbar-nav navbar-right"><!-- id="onepageNav" for homepage only -->
 					<li class="active"><a href="#home">HOME</a></li>
 					<li><a href="#rules">RULES</a></li>
-					<li><a href="#portfolio">MAP</a></li>
+					<li><a href="#map">MAP</a></li>
 					<li><a href="#team">ABOUT US</a></li>
 					<li><a href="#contact">CONTACT</a></li>
 					@if (Auth::check() && Auth::user()->role == 'Admin')
@@ -77,7 +78,7 @@
 					@endif
 					@if (Auth::check())
 						<li><a href="{{{ action('UsersController@logout') }}}" class="external">LOGOUT</a></li>
-						<li><a href="{{{ action('UsersController@edit', Auth::user()->id) }}}" class='external'>{{{ Auth::user()->username }}}</a></li>
+						<li><a href="{{{ action('UsersController@show', Auth::user()->id) }}}" class='external'>{{{ Auth::user()->username }}}</a></li>
 					@else
 						<li><a href="{{{ action('UsersController@create') }}}" class='external'>SIGN UP</a></li>
 						<li class="dropdown">
@@ -187,8 +188,8 @@
 	<!-- QUOTE -->
 
 
-	<!-- PORTFOLIO -->
-	<section id="portfolio">
+	<!-- MAP -->
+	<section id="map">
 
 		<header>
 			<h2 data-animation="bounceIn">Items Hidden Around San Antonio</h2>
@@ -198,7 +199,7 @@
 		<div id="map-canvas"></div>
 
 	</section>
-	<!-- /PORTFOLIO -->
+	<!-- /MAP -->
 	
 	<!-- TEAM -->
 	<section id="team">
@@ -446,15 +447,13 @@
 	<script type="text/javascript" src="/assets/plugins/prettyPhoto/js/jquery.prettyPhoto.min.js"></script>
 	<script type="text/javascript" src="/assets/plugins/jquery-stellar/jquery.stellar.min.js"></script>
 	<script type="text/javascript" src="/assets/plugins/jquery-bxslider/jquery.bxslider.pack.js"></script>
-	<script type="text/javascript" src="assets/plugins/iscroll/iscroll.js"></script>
-	<script type="text/javascript" src="assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
-	<script src="js/custom.js"></script>
+	<script type="text/javascript" src="/assets/plugins/iscroll/iscroll.js"></script>
+	<script type="text/javascript" src="/assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
 	<!-- /PLUGINS -->
 
 	<script type="text/javascript" src="/assets/js/demo.js"></script>
 	
 	<script type="text/javascript" src="/assets/js/scripts.js"></script>
 	<script async type="text/javascript" src="/assets/js/shop.js"></script>
-	<script async type="text/javascript" src="/assets/js/contact.js"></script>
 
 @stop
