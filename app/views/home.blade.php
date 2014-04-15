@@ -302,13 +302,9 @@
 					<!-- EMAIL FORM -->
 					{{ Form::open(array('action' => 'ContactsController@store', 'class' => 'form-horizontal', 'id' => 'emailForm')) }}
 						<!-- from -->
-						<div class="form-group">
-							{{ $errors->has('from') ? $errors->first('from', '<p><span class="help-block">:message</span></p>') : '' }}
-							{{ Form::label('from', 'From', array('class' => 'col-sm-2 control-label')) }}
-							<div class="col-sm-10">
-								{{ Form::text('from', null, array('class' => 'form-control', 'placeholder' => 'From')) }}
-							</div>
-						</div>
+						@if (Auth::check())
+							{{ Form::hidden('from', Auth::user()->username) }}
+						@endif
 
 						<!-- subject -->
 						<div class="form-group">
