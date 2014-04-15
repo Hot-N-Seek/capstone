@@ -309,7 +309,7 @@ a, a:hover {
 		}
 
 		section article {
-			margin:0 0 60px 0;
+			margin:0 0 30px 0;
 		}
 
 		section header h1, section header h2, footer h2 {
@@ -1622,7 +1622,9 @@ h4.panel-title a i {
 	}
 
 	.owl-carousel.column .item {
-		margin:20px 10px;
+		margin:10px -5px;
+		padding: 15px;
+		padding-left: 5px;
 	}
 
 	.owl-carousel.column .item .social {
@@ -1634,7 +1636,7 @@ h4.panel-title a i {
 		text-align:center;
 		overflow:hidden;
 		display:inline-block;
-		height:200px; width:208px;
+		height:165px; width:245px;
 		-webkit-border-radius: 6px;
 		   -moz-border-radius: 6px;
 				border-radius: 6px;
@@ -1643,6 +1645,7 @@ h4.panel-title a i {
 	.owl-carousel.column img {
 		max-width:100%;
 		height:auto;
+		padding-right: 90px;
 	}
 
 
