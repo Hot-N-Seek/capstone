@@ -18,12 +18,7 @@ class UsersController extends \BaseController {
 	 */
 	public function showLogin()
 	{
-		return View::make('login');
-	}
-
-	public function resetPassword() 
-	{
-		echo "feature coming soon";
+		return View::make('users.login');
 	}
 
 	/**
@@ -86,7 +81,7 @@ class UsersController extends \BaseController {
 		$user->username = Input::get('username');
 		$user->first_name = Input::get('first_name');
 		$user->last_name = Input::get('last_name');
-		$user->role = 'Author';
+		$user->role = 'User';
 		$user->save();
 		return Redirect::to('/');
 	}

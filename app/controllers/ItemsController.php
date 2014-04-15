@@ -9,7 +9,13 @@ class ItemsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$data = Item::with('hidden')->orderBy('created_at', 'desc')->paginate(10);
+		foreach ($data as $key => $item) {
+			if (is_numeric($item->found_id)) {
+				unset($data[$key]);
+			}
+		}
+		return View::make('items.items_index')->with('items', $data);
 	}
 
 	/**
