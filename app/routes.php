@@ -49,11 +49,12 @@ Route::post('/ajax/post', function()
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))) || Auth::attempt(array('username' => Input::get('email'), 'password' => Input::get('password'))))
 		{
 			$id = Auth::user()->id;
+			$username = Auth::user()->username;
 			$found_items = Item::where('found_id', '=', $id)->get();
 			$found_count = count($found_items);
 			$hidden_items = Item::where('create_id', '=', $id)->get();
 			$hidden_count = count($hidden_items);
-		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => Auth::user()->username, 'id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count);
+		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => $username, 'id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count);
 		}
 		else
 		{
