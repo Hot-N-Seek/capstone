@@ -44,6 +44,86 @@
 	</head>
 	<body>
 
+		@if (Request::is('/'))
+			<!-- HOME -->
+			<section id="home" class="homeTop nofull imageOnly color">
+				
+				<img src="assets/images/preview/slider/MapGeoLocator2.jpg" alt="Large Logo Image" id='large-logo'/>
+
+			</section>
+			<!-- /HOME -->
+		@endif
+
+		<!-- HEADER -->
+		<header id="header">
+			<div class="container">
+
+				<!-- LOGO -->
+				<a href="#home" class="pull-left scrollTo"><img src="assets/images/logo.png" height="60" alt="welcome" /></a>
+
+				<!-- MOBILE MENU -->
+				<button id="mobileMenu" class="fa fa-bars" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"></button>
+
+				<!-- NAV MENU -->
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul id="onepageNav" class="nav navbar-nav navbar-right"><!-- id="onepageNav" for homepage only -->
+						@if (Request::is('/'))
+							<li class="active"><a href="#home">HOME</a></li>
+							<li><a href="#rules">RULES</a></li>
+							<li><a href="#map">MAP</a></li>
+							<li><a href="#team">ABOUT US</a></li>
+							<li><a href="#contact">CONTACT</a></li>
+						@else
+							<li><a href="/" class='external'>HOME</a></li>
+						@endif
+						@if (Auth::check() && Auth::user()->role == 'Admin')
+							<li><a href="{{{ action('UsersController@index') }}}" class='external'>USERS</a></li>
+							<li><a href="{{{ action('ContactsController@index') }}}" class='external'>MESSAGES</a></li>
+						@endif
+						@if (Auth::check())
+							<li><a href="{{{ action('UsersController@logout') }}}" class="external">LOGOUT</a></li>
+							<li><a href="{{{ action('UsersController@show', Auth::user()->id) }}}" class='external'>{{{ Auth::user()->username }}}</a></li>
+						@else
+							<li><a href="{{{ action('UsersController@create') }}}" class='external'>SIGN UP</a></li>
+							<li class="dropdown">
+								<a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">LOGIN<b class="caret"></b></a>
+								<ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+									<li>
+										<div class="row">
+											<div class="col-md-12">
+												@if (Session::has('errorMessage'))
+											    <div class="alert alert-danger dif-col">{{{ Session::get('errorMessage') }}}</div>
+												@endif
+												{{ Form::open(array('action' => 'UsersController@doLogin', 'class' => 'form', 'id' => 'login-nav', 'accept-charset' => 'UTF-8')) }}
+													<div class="form-group">
+													{{ $errors->has('email') ? $errors->first('email', '<p><span class="help-block">:message</span></p>') : '' }}
+													{{ Form::label('email', 'Email address', array('class' => 'sr-only')) }}
+													{{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Email or Username')) }}
+													</div>
+														<div class="form-group">
+														{{ $errors->has('password') ? $errors->first('password', '<p><span class="help-block">:message</span></p>') : '' }}
+														{{ Form::label('password', 'Password', array('class' => 'sr-only')) }}
+														{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
+													</div>
+														<hr>
+													<div class="form-group">
+													{{ Form::submit('Sign in', array('class' => 'btn btn-success btn-block')); }}
+													</div>
+													{{ Form::close() }}
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						@endif
+					</ul>
+				</nav>
+				<!-- /NAV MENU -->
+
+			</div>
+		</header>
+		<!-- /HEADER -->
+
 
 		@yield('content')
 

@@ -17,7 +17,9 @@
 		  	};
 		  	map = new google.maps.Map(document.getElementById('map-canvas'), opts);
 		  	geocoder = new google.maps.Geocoder();
+		  	<? $count = 0; ?>
 		  	@foreach ($items as $item)
+		  		<? $count++; ?>
 				setmarker( <?= "{$item->latitude}, {$item->longitude}, \"{$item->name}\"" ?> );
 			@endforeach
 		}
@@ -46,79 +48,7 @@
 
 @section('content')
 
-	<!-- HOME -->
-	<section id="home" class="homeTop nofull imageOnly color">
-		
-		<img src="assets/images/preview/slider/MapGeoLocator2.jpg" alt="Large Logo Image" id='large-logo'/>
-
-	</section>
-	<!-- /HOME -->
-
-	<!-- HEADER -->
-	<header id="header">
-		<div class="container">
-
-			<!-- LOGO -->
-			<a href="#home" class="pull-left scrollTo"><img src="assets/images/logo.png" height="60" alt="welcome" /></a>
-
-			<!-- MOBILE MENU -->
-			<button id="mobileMenu" class="fa fa-bars" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"></button>
-
-			<!-- NAV MENU -->
-			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-				<ul id="onepageNav" class="nav navbar-nav navbar-right"><!-- id="onepageNav" for homepage only -->
-					<li class="active"><a href="#home">HOME</a></li>
-					<li><a href="#rules">RULES</a></li>
-					<li><a href="#map">MAP</a></li>
-					<li><a href="#team">ABOUT US</a></li>
-					<li><a href="#contact">CONTACT</a></li>
-					@if (Auth::check() && Auth::user()->role == 'Admin')
-						<li><a href="{{{ action('UsersController@index') }}}" class='external'>USERS</a></li>
-						<li><a href="{{{ action('ContactsController@index') }}}" class='external'>MESSAGES</a></li>
-					@endif
-					@if (Auth::check())
-						<li><a href="{{{ action('UsersController@logout') }}}" class="external">LOGOUT</a></li>
-						<li><a href="{{{ action('UsersController@show', Auth::user()->id) }}}" class='external'>{{{ Auth::user()->username }}}</a></li>
-					@else
-						<li><a href="{{{ action('UsersController@create') }}}" class='external'>SIGN UP</a></li>
-						<li class="dropdown">
-							<a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">LOGIN<b class="caret"></b></a>
-							<ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
-								<li>
-									<div class="row">
-										<div class="col-md-12">
-											@if (Session::has('errorMessage'))
-										    <div class="alert alert-danger dif-col">{{{ Session::get('errorMessage') }}}</div>
-											@endif
-											{{ Form::open(array('action' => 'UsersController@doLogin', 'class' => 'form', 'id' => 'login-nav', 'accept-charset' => 'UTF-8')) }}
-												<div class="form-group">
-												{{ $errors->has('email') ? $errors->first('email', '<p><span class="help-block">:message</span></p>') : '' }}
-												{{ Form::label('email', 'Email address', array('class' => 'sr-only')) }}
-												{{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Email or Username')) }}
-												</div>
-													<div class="form-group">
-													{{ $errors->has('password') ? $errors->first('password', '<p><span class="help-block">:message</span></p>') : '' }}
-													{{ Form::label('password', 'Password', array('class' => 'sr-only')) }}
-													{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
-												</div>
-													<hr>
-												<div class="form-group">
-												{{ Form::submit('Sign in', array('class' => 'btn btn-success btn-block')); }}
-												</div>
-												{{ Form::close() }}
-										</div>
-									</div>
-								</li>
-							</ul>
-						</li>
-					@endif
-				</ul>
-			</nav>
-			<!-- /NAV MENU -->
-
-		</div>
-	</header>
-	<!-- /HEADER -->
+	
 
 	<!-- Rules for the App -->
 	<section id="rules" class="color">
@@ -137,9 +67,19 @@
 			</figure>
 
 			<ol>
-			<li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</li>
+			<li>Someone hides an item, using the Get It Red phone app, anywhere they want as long as it is accessible by everyone and not in a building with mulitple floors.</li>
 			<br>
-			<li>Lorem ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</li>
+			<li>You choose an item you want to find from the list on our website.</li>
+			<br>
+			<li>You go to the area the item is hidden and select it on the phone app to show you how far away you are.</li>
+			<br>
+			<li>As you get closer to the item, the screen will say WARMER and change its color to red.</li>
+			<br>
+			<li>As you get farther from the item, the screen will say COLDER and change its color to blue.</li>
+			<br>
+			<li>When you find the item press the button that says "found item."</li>
+			<br>
+			<li>Now that item is yours to keep or hide again.</li>
 			</ol>
 
 			<!-- number animate -->
@@ -148,15 +88,15 @@
 				<!-- animate 1 -->
 				<div class="milestone">
 					<i class="fa fa-briefcase"></i> <!-- icon -->
-					<span class="countTo">121</span> <!-- number -->
-					<span class="countToDesc">Our Projects</span> <!-- short text -->
+					<span class="countTo">{{ $count }}</span> <!-- number -->
+					<span class="countToDesc">Items Hidden</span> <!-- short text -->
 				</div>
 
 				<!-- animate 2 -->
 				<div class="milestone">
 					<i class="fa fa-users"></i> <!-- icon -->
 					<span class="countTo">118</span> <!-- number -->
-					<span class="countToDesc">Our Customers</span> <!-- short text -->
+					<span class="countToDesc">Our Users</span> <!-- short text -->
 				</div>
 
 				<!-- animate 3 -->
@@ -177,6 +117,7 @@
 	<!-- QUOTE -->
 	<section class="quote color parallax" data-stellar-background-ratio="0.5" style="background-image:url(assets/images/preview/slider/parallax_bg.jpg)">
 
+
 		<div class="container">
 			<q>We can't solve problems by using the same kind of thinking we used when we created them.</q>
 			<cite>
@@ -194,9 +135,9 @@
 		<header>
 			<h2 data-animation="bounceIn">Items Hidden Around San Antonio</h2>
 			<h3>Can you find them all?</h3>
-		</header>
 
-		<div id="map-canvas"></div>
+			<div id="map-canvas"></div>
+		</header>
 
 	</section>
 	<!-- /MAP -->
@@ -255,7 +196,7 @@
 					<!-- carousel item -->
 					<div class="item dragCursor" data-animation="fadeInUp">
 						<!-- top image -->
-						<span class="top-image"><img src="assets/images/preview/content/team/Nathan.png" alt="..." height="200"></span>
+						<span class="top-image"><img src="assets/images/preview/content/team/Nathaniel.jpg" alt="..." height="200"></span>
 						<!-- member name / occupation -->
 						<h4>
 							<strong>Nathaniel Medrano</strong> 
