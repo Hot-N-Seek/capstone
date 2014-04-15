@@ -76,6 +76,7 @@
 						@else
 							<li><a href="/" class='external'>HOME</a></li>
 						@endif
+						<li><a href="{{{ action('ItemsController@index') }}}" class='external'>LIST</a></li>
 						@if (Auth::check() && Auth::user()->role == 'Admin')
 							<li><a href="{{{ action('UsersController@index') }}}" class='external'>USERS</a></li>
 							<li><a href="{{{ action('ContactsController@index') }}}" class='external'>MESSAGES</a></li>
@@ -110,6 +111,8 @@
 													{{ Form::submit('Sign in', array('class' => 'btn btn-success btn-block')); }}
 													</div>
 													{{ Form::close() }}
+													<hr>
+													<button id='forgot_pass' class='btn btn-block btn-primary extrnal'>Forgot Password?</button>
 											</div>
 										</div>
 									</li>
@@ -128,6 +131,13 @@
 		@yield('content')
 
 		@yield('bottom-script')
+
+		<script>
+			$('#forgot_pass').on('click', function(e){
+				e.preventDefault();
+				window.location.href = "{{ action('RemindersController@getRemind') }}";
+			});
+		</script>
 
 	</body>
 </html>
