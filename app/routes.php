@@ -65,6 +65,8 @@ Route::post('/ajax/post', function()
 
 Route::controller('password', 'RemindersController');
 
+Route::get('/users/activate/{code}', 'UsersController@getActivate');
+
 
 
 

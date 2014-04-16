@@ -8,9 +8,9 @@ class UsersController extends \BaseController {
 	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
-	    $this->beforeFilter('auth', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store')));
-	    $this->beforeFilter('admin', array('except' => array('doLogin', 'showLogin', 'edit', 'logout', 'create', 'store', 'update', 'show')));
-	    $this->beforeFilter('edit_user', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store', 'update')));
+	    $this->beforeFilter('auth', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store', 'getActivate')));
+	    $this->beforeFilter('admin', array('except' => array('doLogin', 'showLogin', 'edit', 'logout', 'create', 'store', 'update', 'show', 'getActivate')));
+	    $this->beforeFilter('edit_user', array('except' => array('doLogin', 'showLogin', 'logout', 'create', 'store', 'update', 'show', 'getActivate')));
 	}
 
 	/**
@@ -21,12 +21,38 @@ class UsersController extends \BaseController {
 		return View::make('users.login');
 	}
 
+	public function getActivate($code) 
+	{
+		$user = User::where('code', '=', $code)->where('active', '=', 0)->first();
+
+		if($user) {
+			// Update user to active state
+			$user->active = 1;
+			$user->code = '';
+			$user->save();
+
+			Session::flash('successMessage', 'Your account has been activated. Please login');
+			return Redirect::action('UsersController@showLogin');
+		}
+		Session::flash('errorMessage', 'Your account has not been activated. Please try again');
+		return Redirect::action('UsersController@showLogin');
+	}
+
 	/**
 	 * Handles User login
 	 */
 	public function doLogin()
 	{
 		$validator = Validator::make(Input::all(), User::$rules);
+
+		$user = User::where('email', Input::get('email'))
+					->orWhere('username', Input::get('email'))->first();
+
+		if ($user->active == 0) 
+		{
+			Session::flash('errorMessage', 'Your account has not been confirmed. Check your email');
+			return Redirect::back();
+		}
 
 		if ($validator->fails())
 	    {
@@ -36,7 +62,7 @@ class UsersController extends \BaseController {
 
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))) || Auth::attempt(array('username' => Input::get('email'), 'password' => Input::get('password'))))
 		{
-		    return Redirect::intended('/');
+		    return Redirect::intended('/users/' . Auth::user()->id);
 		}
 		else
 		{
@@ -81,8 +107,15 @@ class UsersController extends \BaseController {
 		$user->username = Input::get('username');
 		$user->first_name = Input::get('first_name');
 		$user->last_name = Input::get('last_name');
+		$user->code = str_random(60);
+		$user->active = 0;
 		$user->role = 'User';
 		$user->save();
+
+		Mail::send('emails.auth.activate', array('link' => URL::to('users/activate', $user->code)), function($message) use ($user) {
+			$message->to($user->email)->subject('Activate your account');
+		});
+
 		return Redirect::to('/');
 	}
 
