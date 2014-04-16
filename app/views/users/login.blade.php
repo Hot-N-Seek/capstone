@@ -35,7 +35,9 @@
 			{{ Form::close() }}
 			<br>
 			<br>
-			<button id='forgot_pass' class='btn btn-block btn-primary extrnal'>Forgot Password?</button>
+			<button id='forgot_pass' class='btn btn-primary extrnal'>Forgot Password?</button>
+			<br>
+			<a href="{{{ action('HomeController@Home') }}}" class='btn btn-default'>Back</a>
 		</div>
 
 @stop

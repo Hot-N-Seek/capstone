@@ -112,7 +112,10 @@ class ContactsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = Contact::find($id);
+		$user->delete();
+		Session::flash('successMessage', 'Message was deleted');
+		return Redirect::action('ContactsController@index');
 	}
 
 }
