@@ -43,7 +43,7 @@ Route::filter('edit_user', function()
 	if (Auth::check() && Auth::user()->role != 'Admin') {
 		$user = Request::segment(2);
 		if (Auth::user()->id != $user) {
-			Session::flash('errorMessage', 'You do not have permission to do that jerk');
+			Session::flash('errorMessage', 'You do not have permission to do that');
 			return Redirect::to('/');
 		}
 	} 
