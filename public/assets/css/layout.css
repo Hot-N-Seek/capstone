@@ -2061,3 +2061,7 @@ section.quote q {
 	padding-top: 50px;
 	padding-bottom: 347px; /* avoiding content go behind the footer */
 }
+
+#first_about {
+	margin-left: 17%;
+}

@@ -152,12 +152,12 @@
 
 		<!-- team description -->
 		<article class="container text-left">			
-			<p class="dropcap">We are a group of 3 Junior Web Developers that worked on this app as our final project for Codeup. Hopefully you have as much fun playing with this app, as we did making it.</p>
+			<p class="dropcap">We are a group of 3 Junior Web Developers that worked on this app as our final project for Codeup. We hope you have as much fun playing with this app, as we did making it.</p>
 		</article>
 
 		<!-- CAROUSEL -->
 		<article class="container text-left">
-				<div class="owl-carousel column" data-navigation="false" data-singleitem="false" data-autoplay="false" data-animation="fadeIn">
+				<div class="owl-carousel column" data-navigation="false" data-singleitem="false" data-autoplay="false" data-animation="fadeIn" id='first_about'>
 					<!-- carousel item -->
 					<div class="item dragCursor" data-animation="fadeInUp">
 						<!-- top image -->

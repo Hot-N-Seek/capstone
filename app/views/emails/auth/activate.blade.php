@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Password Reset</h2>
+		<h2>Confirmation</h2>
 
 		<div>
 			To confirm your account, click this link: {{ $link }}.
