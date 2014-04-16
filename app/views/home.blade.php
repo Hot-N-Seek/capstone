@@ -119,9 +119,9 @@
 
 
 		<div class="container">
-			<q>We can't solve problems by using the same kind of thinking we used when we created them.</q>
+			<q>It soon became obvious that we were but on the threshold of the discovery.</q>
 			<cite>
-				<strong>Albert Einstein</strong>
+				<strong>Howard Carter</strong>
 			</cite>
 		</div>
 
@@ -135,7 +135,7 @@
 		<header>
 			<h2 data-animation="bounceIn">Items Hidden Around San Antonio</h2>
 			<h3>Can you find them all?</h3>
-
+			<br>
 			<div id="map-canvas"></div>
 		</header>
 
@@ -152,12 +152,12 @@
 
 		<!-- team description -->
 		<article class="container text-left">			
-			<p class="dropcap">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+			<p class="dropcap">We are a group of 3 Junior Web Developers that worked on this app as our final project for Codeup. We hope you have as much fun playing with this app, as we did making it.</p>
 		</article>
 
 		<!-- CAROUSEL -->
 		<article class="container text-left">
-				<div class="owl-carousel column" data-navigation="false" data-singleitem="false" data-autoplay="false" data-animation="fadeIn">
+				<div class="owl-carousel column" data-navigation="false" data-singleitem="false" data-autoplay="false" data-animation="fadeIn" id='first_about'>
 					<!-- carousel item -->
 					<div class="item dragCursor" data-animation="fadeInUp">
 						<!-- top image -->
@@ -168,12 +168,10 @@
 							/ Web Developer
 						</h4>
 						<!-- short description -->
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-						<a target="_blank" href="#" class="rounded-icon social fa fa-facebook"></a><!-- facebook -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-twitter"></a><!-- twitter -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-google-plus"></a><!-- google plus -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-pinterest"></a><!-- pinterest -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-skype"></a><!-- skype -->
+						<p>Currently attending Codeup! A place where we are learning one of the best fundamentals for LAMP + J, and use those tools learned and apply them for the development of web, IOS and other set of platforms. My goal is to get to meet and network with a lot of people, as well as to be able to get a programming job after I finish in April.</p>
+						<a target="_blank" href="https://www.facebook.com/andres.abad.520" class="rounded-icon social fa fa-facebook"></a><!-- facebook -->
+						<a target="_blank" href="https://twitter.com/iandresabad" class="rounded-icon social fa fa-twitter"></a><!-- twitter -->
+						<a target="_blank" href="https://plus.google.com/u/0/106983130589802187676/posts" class="rounded-icon social fa fa-google-plus"></a><!-- google plus -->
 					</div>
 
 					<!-- carousel item -->
@@ -186,11 +184,12 @@
 							/ Web Developer
 						</h4>
 						<!-- short description -->
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-						<a target="_blank" href="#" class="rounded-icon social fa fa-facebook"></a><!-- facebook -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-twitter"></a><!-- twitter -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-google-plus"></a><!-- google plus -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-pinterest"></a><!-- pinterest -->
+						<p>I am a full stack web developer.  I completed the Codeup 12-week bootcamp for the LAMP+J stack in April 2014.  I am able to look at what is need of the program and see a clear way to write code to make those functions happen.  I focus on making sure the end product is easy to use and functions without problem.  I am detail oriented and want it all to work together well.</p>
+
+						<p>Once I finish the Codeup Bootcamp I would like to get a job where I can use my skills while at the same time continue learning new technologies.</p>
+						<a target="_blank" href="http://www.facebook.com/CameronHolland" class="rounded-icon social fa fa-facebook"></a><!-- facebook -->
+						<a target="_blank" href="https://twitter.com/xCAMER0Nx" class="rounded-icon social fa fa-twitter"></a><!-- twitter -->
+						<a target="_blank" href="https://plus.google.com/u/0/110993532765708460104/posts" class="rounded-icon social fa fa-google-plus"></a><!-- google plus -->
 					</div>
 
 					<!-- carousel item -->
@@ -203,11 +202,12 @@
 							/ Web Developer
 						</h4>
 						<!-- short description -->
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-						<a target="_blank" href="#" class="rounded-icon social fa fa-facebook"></a><!-- facebook -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-twitter"></a><!-- twitter -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-google-plus"></a><!-- google plus -->
-						<a target="_blank" href="#" class="rounded-icon social fa fa-pinterest"></a><!-- pinterest -->
+						<p>I am currently studying at Codeup to become a web developer. I am excited for the road that lies ahead as I use my creativity and new found skill set to develop beautiful and dynamic sites.</p>
+
+						<p>There are unlimited possibilities in this industry and I intend on taking advantage of every opportunity that comes my way!</p>
+						<a target="_blank" href="https://www.facebook.com/nathaniel.medrano.3" class="rounded-icon social fa fa-facebook"></a><!-- facebook -->
+						<a target="_blank" href="https://twitter.com/ndmedrano" class="rounded-icon social fa fa-twitter"></a><!-- twitter -->
+						<a target="_blank" href="https://plus.google.com/u/0/105000377359217856442/posts" class="rounded-icon social fa fa-google-plus"></a><!-- google plus -->
 					</div>
 				</div>
 			</article>
@@ -340,15 +340,11 @@
 
 				<div class="col-md-6">
 
-					<h4>Sed ut perspiciatis unde omnis iste natus error sit voluptatema accusantium. <a href="#footer" class="gmapShow scrollTo">Find us on GoogleMap</a>.</h4>
 					<p class="animate_fade_in">
-						<i class="fa fa-map-marker rounded-icon"></i> PO Box 16122 Collins Street West Victoria 8007 Australia
+						<i class="fa fa-map-marker rounded-icon"></i> 112 E Pecan St, San Antonio, TX 78205
 					</p>
 					<p class="animate_fade_in">
-						<i class="fa fa-envelope rounded-icon"></i> support@website.com
-					</p>
-					<p class="animate_fade_in">
-						<i class="fa fa-phone rounded-icon"></i> +61 3 8376 6284
+						<i class="fa fa-envelope rounded-icon"></i> getitred.geo@gmail.com
 					</p>
 				</div>
 			</div>

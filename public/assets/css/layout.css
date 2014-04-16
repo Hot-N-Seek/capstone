@@ -1618,7 +1618,7 @@ h4.panel-title a i {
 	.owl-carousel.column {
 		font-size:15px;
 		display:block;
-		padding-left: 300px;
+		padding-left: 10px;
 	}
 
 	.owl-carousel.column .item {
@@ -1645,7 +1645,7 @@ h4.panel-title a i {
 	.owl-carousel.column img {
 		max-width:100%;
 		height:auto;
-		padding-right: 90px;
+		padding-right: 45px;
 	}
 
 
@@ -2060,4 +2060,8 @@ section.quote q {
 	margin-bottom: -347px; /* showing the footer */
 	padding-top: 50px;
 	padding-bottom: 347px; /* avoiding content go behind the footer */
+}
+
+#first_about {
+	margin-left: 17%;
 }

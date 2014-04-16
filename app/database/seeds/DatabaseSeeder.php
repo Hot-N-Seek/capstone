@@ -30,6 +30,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Cameron';
         $user->last_name = 'Holland';
         $user->role = 'Admin';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -39,6 +41,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'John';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -48,6 +52,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Bob';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -57,6 +63,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Alex';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -66,6 +74,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Carl';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -75,6 +85,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Dave';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -84,6 +96,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Eric';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -93,6 +107,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Fred';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -102,6 +118,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Gary';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -111,6 +129,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Hal';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -120,6 +140,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Issac';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -129,6 +151,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Ken';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -138,6 +162,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Larry';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -147,6 +173,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Mark';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -156,6 +184,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Nathan';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -165,6 +195,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Omar';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -174,6 +206,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Patrick';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -183,6 +217,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Quentin';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -192,6 +228,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Ray';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -201,6 +239,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Steve';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
 
         $user = new User();
@@ -210,6 +250,8 @@ class UserTableSeeder extends Seeder {
         $user->first_name = 'Tim';
         $user->last_name = 'Smith';
         $user->role = 'User';
+        $user->code = str_random(60);
+        $user->active = 1;
         $user->save();
     }
 

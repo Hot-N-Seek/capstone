@@ -37,6 +37,7 @@ Route::get('/ajax/get', function()
 		Log::info("Received get.");
 		Log::info(Input::all());
 
+
 		$reply = array('error' => false, 'message' => 'This is your data from server');
 		return Response::json($reply);
 	});
@@ -54,7 +55,13 @@ Route::post('/ajax/post', function()
 			$found_count = count($found_items);
 			$hidden_items = Item::where('create_id', '=', $id)->get();
 			$hidden_count = count($hidden_items);
-		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => $username, 'id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count);
+			$items = Item::all();
+			foreach ($items as $key => $item) {
+				if (is_numeric($item->found_id)) {
+					unset($items[$key]);
+				}
+			}
+		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => Auth::user()->username, 'id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count, 'item' => $items);
 		}
 		else
 		{
@@ -64,7 +71,23 @@ Route::post('/ajax/post', function()
 		return Response::json($reply);
 	});
 
+Route::post('/ajax/item' function()
+	{
+		Log::info("Received post.");
+		Log::info(Input::all());
+
+		$item = new Item();
+
+		$item->longitude = Input::get('longitude'); // replace with var from ajax post from phone
+		$item->latitude = Input::get('latitude'); // replace with var from ajax post from phone
+		$item->create_id = Input::get('id'); // replace with var from ajax post from phone
+		$item->name = Input::get('name'); // replace with var from ajax post from phone
+		$item->save();
+	});
+
 Route::controller('password', 'RemindersController');
+
+Route::get('/users/activate/{code}', 'UsersController@getActivate');
 
 
 

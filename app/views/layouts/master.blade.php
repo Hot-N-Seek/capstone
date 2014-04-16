@@ -32,7 +32,7 @@
 		<!-- CSS TEMPLATE -->
 		<link href="/assets/css/layout.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/css/shop.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/css/color/orange.css" rel="stylesheet" type="text/css" /><!-- demo default style -->
+		<link href="/assets/css/color/red.css" rel="stylesheet" type="text/css" /><!-- demo default style -->
 
 		
 
@@ -59,7 +59,11 @@
 			<div class="container">
 
 				<!-- LOGO -->
-				<a href="#home" class="pull-left scrollTo"><img src="/assets/images/logo.png" height="60" alt="welcome" /></a>
+				@if (Request::is('/'))
+					<a href="#home" class="pull-left scrollTo"><img src="/assets/images/logo.png" height="60" alt="welcome" /></a>
+				@else
+					<a href="/" class="pull-left scrollTo"><img src="/assets/images/logo.png" height="60" alt="welcome" /></a>
+				@endif
 
 				<!-- MOBILE MENU -->
 				<button id="mobileMenu" class="fa fa-bars" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"></button>
@@ -87,7 +91,7 @@
 						@else
 							<li><a href="{{{ action('UsersController@create') }}}" class='external'>SIGN UP</a></li>
 							<li class="dropdown">
-								<a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">LOGIN<b class="caret"></b></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN<b class="caret"></b></a>
 								<ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
 									<li>
 										<div class="row">
@@ -131,6 +135,8 @@
 		@yield('content')
 
 		@yield('bottom-script')
+
+		@yield('disqus')
 
 		<script>
 			$('#forgot_pass').on('click', function(e){
