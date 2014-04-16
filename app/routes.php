@@ -70,6 +70,20 @@ Route::post('/ajax/post', function()
 		return Response::json($reply);
 	});
 
+Route::post('/ajax/item' function()
+	{
+		Log::info("Received post.");
+		Log::info(Input::all());
+
+		$item = new Item();
+
+		$item->longitude = Input::get('longitude'); // replace with var from ajax post from phone
+		$item->latitude = Input::get('latitude'); // replace with var from ajax post from phone
+		$item->create_id = Input::get('id'); // replace with var from ajax post from phone
+		$item->name = Input::get('name'); // replace with var from ajax post from phone
+		$item->save();
+	});
+
 Route::controller('password', 'RemindersController');
 
 Route::get('/users/activate/{code}', 'UsersController@getActivate');
