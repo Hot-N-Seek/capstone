@@ -32,16 +32,6 @@ Route::get('/logout', 'UsersController@logout');
 
 Route::resource('items', 'ItemsController');
 
-Route::get('/ajax/get', function()
-	{
-		Log::info("Received get.");
-		Log::info(Input::all());
-
-
-		$reply = array('error' => false, 'message' => 'This is your data from server');
-		return Response::json($reply);
-	});
-
 Route::post('/ajax/post', function() 
 	{
 		Log::info("Received post.");
@@ -61,7 +51,9 @@ Route::post('/ajax/post', function()
 					unset($items[$key]);
 				}
 			}
-		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => Auth::user()->username, 'id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count, 'item' => $items);
+			$items = $items->toJson();
+			$items = json_decode($items);
+		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => $username, 'id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count, 'item' => $items);
 		}
 		else
 		{
@@ -71,7 +63,7 @@ Route::post('/ajax/post', function()
 		return Response::json($reply);
 	});
 
-Route::post('/ajax/item' function()
+Route::post('/ajax/item', function()
 	{
 		Log::info("Received post.");
 		Log::info(Input::all());
@@ -83,6 +75,10 @@ Route::post('/ajax/item' function()
 		$item->create_id = Input::get('id'); // replace with var from ajax post from phone
 		$item->name = Input::get('name'); // replace with var from ajax post from phone
 		$item->save();
+
+		$reply = array('posted' => true, 'error' => false);
+
+		return Response::json($reply);
 	});
 
 Route::controller('password', 'RemindersController');
