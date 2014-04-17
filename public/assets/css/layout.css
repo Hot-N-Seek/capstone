@@ -2073,6 +2073,7 @@ section.quote q {
 	padding-bottom: 347px; /* avoiding content go behind the footer */
 }
 
+<<<<<<< HEAD
 /*button styles*/
 
 .button {
@@ -2213,3 +2214,8 @@ thead{
 	color: #fff;
 }
 
+=======
+#first_about {
+	margin-left: 17%;
+}
+>>>>>>> 3988ca7366535e901c5bbffcf1653e517dc39642
