@@ -53,16 +53,8 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	if (Config::get('app.debug') === true) {
-		Log::error($exception);
-	} else {
-		Log::error($exception->getMessage());
-		return Response::view('errors.missing', array(), 500);
-	}
-});
-
-App::error(function(ModelNotFoundException $e) {
-	return Response::view('errors.missing', array(), 404);
+	Log::error($exception);
+	
 });
 
 /*

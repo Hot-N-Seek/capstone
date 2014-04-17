@@ -11,8 +11,10 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
+          	@if (Auth::check())
             <!-- Remove the .animated class if you don't want things to move -->
             <h1 class="animated slideInLeft"><span>Edit Profile</span></h1>
+            @endif
           </div>
         </div>
       </div>
@@ -22,6 +24,7 @@
       <div class="row">
         <!-- Profile Menu -->
         <div class="col-sm-4 col-md-3">
+        @if (Auth::check())
           <div class="user-menu bottom-15">
             <ul>
               <li>
@@ -35,17 +38,13 @@
                 </a>  
               </li>
               <li>
-                <a href="inbox.html">
-                  <i class="sign fa fa-envelope bg-red"></i> Inbox <i class="fa fa-chevron-right pull-right"></i>
-                </a>  
-              </li>
-              <li>
                 <a href="#">
                   <i class="sign fa fa-sign-out bg-amethyst"></i> Sign Out <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
             </ul>
           </div>
+        @endif
         </div>
 		    <div class="col-sm-8 col-md-6">
 				@if ($edit)
@@ -55,7 +54,7 @@
 		    		<h1>Sign Up User</h1>
 		    		{{ Form::open(array('action' => 'UsersController@store', 'class' => 'form-horizontal')) }}
 		    	@endif
-
+		    		<br>
 
 		    	@if (Session::has('successMessage'))
 				    <div class="alert alert-success dif-col">{{{ Session::get('successMessage') }}}</div>
