@@ -112,11 +112,11 @@
 													</div>
 														<hr>
 													<div class="form-group">
-													{{ Form::submit('Sign in', array('class' => 'btn btn-success btn-block')); }}
+													{{ Form::submit('Sign in', array('class' => 'btn btn-danger btn-block')); }}
 													</div>
 													{{ Form::close() }}
 													<hr>
-													<button id='forgot_pass' class='btn btn-block btn-primary extrnal'>Forgot Password?</button>
+													<button id='forgot_pass' class='btn btn-block button'>Forgot Password?</button>
 											</div>
 										</div>
 									</li>
