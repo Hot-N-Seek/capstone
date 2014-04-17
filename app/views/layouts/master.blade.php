@@ -7,6 +7,7 @@
 
 		<!-- ADDED LINKS FOR SIGNUP FORM -->
 		<link rel="stylesheet" href="css/typica-login.css">
+		<link rel="shortcut icon" href="/assets/images/logo.png" />
 		
 
 		<!-- GOOGLE MAPS -->
@@ -116,7 +117,7 @@
 													</div>
 													{{ Form::close() }}
 													<hr>
-													<button id='forgot_pass' class='btn btn-block button'>Forgot Password?</button>
+													<button id='forgot_pass' class='btn btn-block btn-primary'>Forgot Password?</button>
 											</div>
 										</div>
 									</li>
