@@ -53,7 +53,7 @@ Route::post('/ajax/post', function()
 			}
 			$items = $items->toJson();
 			$items = json_decode($items);
-		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => $username, 'id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count, 'item' => $items);
+		    $reply = array('isAuthorized' => true, 'error' => false, 'username' => $username, 'user_id' => $id, 'found_count' => $found_count, 'hidden_count' => $hidden_count, 'item' => $items);
 		}
 		else
 		{
@@ -63,16 +63,16 @@ Route::post('/ajax/post', function()
 		return Response::json($reply);
 	});
 
-Route::post('/ajax/item', function()
+Route::post('/ajax/post/item', function()
 	{
 		Log::info("Received post.");
 		Log::info(Input::all());
 
 		$item = new Item();
 
-		$item->longitude = Input::get('longitude'); // replace with var from ajax post from phone
-		$item->latitude = Input::get('latitude'); // replace with var from ajax post from phone
-		$item->create_id = Input::get('id'); // replace with var from ajax post from phone
+		$item->longitude = (double) Input::get('longitude'); // replace with var from ajax post from phone
+		$item->latitude = (double) Input::get('latitude'); // replace with var from ajax post from phone
+		$item->create_id = (int) Input::get('user_id'); // replace with var from ajax post from phone
 		$item->name = Input::get('name'); // replace with var from ajax post from phone
 		$item->save();
 
