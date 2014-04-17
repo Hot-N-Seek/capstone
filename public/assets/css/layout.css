@@ -2023,6 +2023,7 @@ section.quote q {
     background-color: #3a3a3a;
     padding-bottom: 100px;
     padding-top: 21px; 
+    height: 1200px;
 }
 
 #MessageBg {
@@ -2214,8 +2215,6 @@ thead{
 	color: #fff;
 }
 
-=======
 #first_about {
 	margin-left: 17%;
 }
->>>>>>> 3988ca7366535e901c5bbffcf1653e517dc39642

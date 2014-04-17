@@ -5,41 +5,8 @@
 @stop
 
 @section('content')
-	<div class="wrapper">
-		<div class="section-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<!-- Remove the .animated class if you don't want things to move -->
-						<h1 class="animated slideInLeft"><span>Edit Profile</span></h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<!-- Profile Menu -->
-				<div class="col-sm-4 col-md-3">
-					<div class="user-menu bottom-15">
-						<ul>
-							<li>
-								<a href="{{ action('UsersController@show', $user->id) }}">
-									<i class="sign fa fa-user bg-green"></i> My Profile <i class="fa fa-chevron-right pull-right"></i>
-								</a>  
-							</li>
-							<li>
-								<a href="{{ action('UsersController@edit', $user->id) }}" class="active">
-									<i class="sign fa fa-edit bg-blue"></i> Edit Profile <i class="fa fa-chevron-right pull-right"></i>
-								</a>  
-							</li>
-							<li>
-								<a href="/logout">
-									<i class="sign fa fa-sign-out bg-amethyst"></i> Sign Out <i class="fa fa-chevron-right pull-right"></i>
-								</a>  
-							</li>
-						</ul>
-					</div>
-				</div>
+		<div id='UserBg'>
+			<div class='container inner-container contact-container'>
 		    <div class="col-sm-8 col-md-6">
 				@if ($edit)
 					<h1>Update User Info</h1>

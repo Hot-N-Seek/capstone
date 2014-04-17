@@ -55,7 +55,7 @@
             </table>
             {{ $users->appends(array('user_search' => Input::get('user_search')))->links() }} <br>
             @if (Auth::check())
-               <a href="{{{ action('UsersController@create') }}}" class='btn button'>Create New User</a>
+               <a href="{{{ action('UsersController@create') }}}" class='btn btn-success'>Create New User</a>
             @endif
 
             {{ Form::open(array('action' => array('UsersController@destroy'), 'method' => 'delete', 'id' => 'formDeletePost')) }}
