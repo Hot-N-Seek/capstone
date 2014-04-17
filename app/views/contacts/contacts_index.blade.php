@@ -7,8 +7,8 @@
 
 @section('content')
 	
-	<div id ="UserBg">
-		<div class='container contact-container inner-container'>
+	<div id ="MessageBg">
+		<div class='container contact-container color-container'>
 			<h1>All Messages</h1>
 			@if (Session::has('successMessage'))
 			    <div class="alert alert-success dif-col">{{{ Session::get('successMessage') }}}</div>

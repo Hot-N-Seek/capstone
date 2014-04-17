@@ -10,16 +10,18 @@
 
 <div id ="UserBg">
     <div class="container">
-        <h1 class="titleColor">User list</h1>
         <div class="col-sm-3 col-md-3">
-            <form class="navbar-form" method="GET" action="{{{ action('UsersController@index') }}}">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search Users" name="user_search" value='{{ Input::get('user_search') }}'>
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            <table class="table">
+                <h1 class="titleColor">User List</h1>
+                <form class="navbar-form" method="GET" action="{{{ action('UsersController@index') }}}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search Users" name="user_search" value='{{ Input::get('user_search') }}'>
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </table>
         </div>
         @if (Session::has('successMessage'))
             <div class="alert alert-success dif-col">{{{ Session::get('successMessage') }}}</div>
@@ -28,27 +30,36 @@
             <div class="alert alert-danger dif-col">{{{ Session::get('errorMessage') }}}</div>
         @endif
         <div>
-        <table class='table table-hover table-bordered inner-container'>
-        @foreach ($users as $user)
-            <tr>
-                <td>{{{ $user->first_name }}}</td>
-                <td>{{{ $user->last_name }}}</td>
-                <td>{{{ $user->username }}}</td>
-                <td>{{{ $user->email }}}</td>
-                <td>
-                    <a href="{{{ action('UsersController@edit', $user->id) }}}" class='btn btn-primary'>Edit</a>
-                    <a href="#" class='btnDeletePost btn btn-danger' data-userid="{{{$user->id}}}">Delete</a>
-                </td>
-            </tr>
-        @endforeach
-        </table>
-        {{ $users->appends(array('user_search' => Input::get('user_search')))->links() }} <br>
-        @if (Auth::check())
-           <a href="{{{ action('UsersController@create') }}}" class='btn btn-success'>Create New User</a>
-        @endif
+            <table class='table table-hover table-bordered inner-container'>
+                <thead>
+                    <tr> 
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Administrate</th>
+                    </tr>
+                </thead>
+            @foreach ($users as $user)
+                <tr class="Tcolor">
+                    <td>{{{ $user->first_name }}}</td>
+                    <td>{{{ $user->last_name }}}</td>
+                    <td>{{{ $user->username }}}</td>
+                    <td>{{{ $user->email }}}</td>
+                    <td>
+                        <a href="{{{ action('UsersController@edit', $user->id) }}}" class='btn edit-button'>Edit</a>
+                        <a href="#" class='btnDeletePost btn btn-danger' data-userid="{{{$user->id}}}">Delete</a>
+                    </td>
+                </tr>
+            @endforeach
+            </table>
+            {{ $users->appends(array('user_search' => Input::get('user_search')))->links() }} <br>
+            @if (Auth::check())
+               <a href="{{{ action('UsersController@create') }}}" class='btn button'>Create New User</a>
+            @endif
 
-        {{ Form::open(array('action' => array('UsersController@destroy'), 'method' => 'delete', 'id' => 'formDeletePost')) }}
-        {{ Form::close() }}
+            {{ Form::open(array('action' => array('UsersController@destroy'), 'method' => 'delete', 'id' => 'formDeletePost')) }}
+            {{ Form::close() }}
         </div>
     </div>
 </div>
