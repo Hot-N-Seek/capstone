@@ -24,11 +24,11 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
+$env = $app->detectEnvironment(function () {
 
-	'local' => array('Camerons-MacBook-Pro'),
+	return $_SERVER['LARAVEL_ENV'] == 'local' ? 'local' : 'production';
 
-));
+});
 
 /*
 |--------------------------------------------------------------------------
