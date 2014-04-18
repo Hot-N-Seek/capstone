@@ -28,17 +28,17 @@
           <div class="user-menu bottom-15">
             <ul>
               <li>
-                <a href="profile.html">
+                <a href="{{ action('UsersController@show', $user->id) }}">
                   <i class="sign fa fa-user bg-green"></i> My Profile <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
               <li>
-                <a href="edit-profile.html" class="active">
+                <a href="{{ action('UsersController@edit', $user->id) }}" class="active">
                   <i class="sign fa fa-edit bg-blue"></i> Edit Profile <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
               <li>
-                <a href="#">
+                <a href="/logout">
                   <i class="sign fa fa-sign-out bg-amethyst"></i> Sign Out <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
