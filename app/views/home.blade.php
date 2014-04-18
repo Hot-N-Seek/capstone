@@ -168,7 +168,7 @@
 							/ Web Developer
 						</h4>
 						<!-- short description -->
-						<p>Currently attending Codeup! A place where we are learning one of the best fundamentals for LAMP + J, and use those tools learned and apply them for the development of web, IOS and other set of platforms. My goal is to get to meet and network with a lot of people, as well as to be able to get a programming job after I finish in April.</p>
+						<p>I'm a proficient LAMP stack J web developer, able to learn other platforms. Having completed a 12-week bootcamp at codeup I am able to use those tools and build an aplication.  I am focused, determined and very driven to create something that is unique and useful to others. Even if I make mistakes, I am always happy to learn from them, always pushing forward and always aspiring to learn new things in order for me to improve and excel as a professional. I believe that there’s always room for improvement and working together as a team is important.</p>
 						<a target="_blank" href="https://www.facebook.com/andres.abad.520" class="rounded-icon social fa fa-facebook"></a><!-- facebook -->
 						<a target="_blank" href="https://twitter.com/iandresabad" class="rounded-icon social fa fa-twitter"></a><!-- twitter -->
 						<a target="_blank" href="https://plus.google.com/u/0/106983130589802187676/posts" class="rounded-icon social fa fa-google-plus"></a><!-- google plus -->

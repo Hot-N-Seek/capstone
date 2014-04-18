@@ -8,7 +8,7 @@
 @section('content')
 	
 	<div id ="UserBg">
-		<div class='container contact-container inner-container'>
+		<div class='container contact-container inner-container Tcolor'>
 			<h1>All Hidden Items</h1>
 			@if (Session::has('successMessage'))
 			    <div class="alert alert-success dif-col">{{{ Session::get('successMessage') }}}</div>
