@@ -81,6 +81,19 @@ Route::post('/ajax/post/item', function()
 		return Response::json($reply);
 	});
 
+Route::post('/ajax/post/finditem', function() 
+	{
+		Log::info("Received post.");
+		Log::info(Input::all());
+
+		$item = Item::find(Input::get('item_id'));
+		$item->found_id = Input::get('user_id');
+
+		$reply = array('found' => true, 'error' => false);
+
+		return Response::json($reply);
+	});
+
 Route::controller('password', 'RemindersController');
 
 Route::get('/users/activate/{code}', 'UsersController@getActivate');
