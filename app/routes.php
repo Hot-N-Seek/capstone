@@ -91,7 +91,7 @@ Route::post('/ajax/post/finditem', function()
 		Log::info(Input::all());
 
 		$item = Item::find(Input::get('item_id'));
-		$item->found_id = Input::get('user_id');
+		$item->found_id = (int) Input::get('user_id');
 		$item->save();
 
 		$reply = array('found' => true, 'error' => false);
