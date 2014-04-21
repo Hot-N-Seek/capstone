@@ -11,27 +11,29 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
 
-
-
+// route for home page
 Route::get('/', 'HomeController@Home');
 
+// routes for user methods
 Route::resource('users', 'UsersController');
 
+// routes for contact methods
 Route::resource('contact-us', 'ContactsController');
 
+// route for login page
 Route::get('/login', 'UsersController@showLogin');
 
+// route to handle login info
 Route::post('/login', 'UsersController@doLogin');
 
+// route to logout users
 Route::get('/logout', 'UsersController@logout');
 
+// routes for item methods
 Route::resource('items', 'ItemsController');
 
+// route for ajax login request
 Route::post('/ajax/post', function() 
 	{
 		Log::info("Received post.");
@@ -63,6 +65,7 @@ Route::post('/ajax/post', function()
 		return Response::json($reply);
 	});
 
+// route for new item ajax reqeust
 Route::post('/ajax/post/item', function()
 	{
 		Log::info("Received post.");
@@ -81,6 +84,7 @@ Route::post('/ajax/post/item', function()
 		return Response::json($reply);
 	});
 
+// route for ajax request to find items
 Route::post('/ajax/post/finditem', function() 
 	{
 		Log::info("Received post.");
@@ -88,14 +92,17 @@ Route::post('/ajax/post/finditem', function()
 
 		$item = Item::find(Input::get('item_id'));
 		$item->found_id = Input::get('user_id');
+		$item->save();
 
 		$reply = array('found' => true, 'error' => false);
 
 		return Response::json($reply);
 	});
 
+// route for password reset
 Route::controller('password', 'RemindersController');
 
+// route for activating users
 Route::get('/users/activate/{code}', 'UsersController@getActivate');
 
 
